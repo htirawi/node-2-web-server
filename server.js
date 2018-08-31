@@ -12,9 +12,9 @@ app.set('view engine', 'hbs');
 
 // middleware are excuted in the order you call app.use
 // this middleware will stop every thing after it from excuting.
-app.use((req,res,next) => {
-  res.render('maintenance');
-});
+// app.use((req,res,next) => {
+//   res.render('maintenance');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -77,7 +77,9 @@ app.get('/bad' , (req,res) => {
 
 });
 
+// object stores all env variables as key/value pairs
+const port = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 })
